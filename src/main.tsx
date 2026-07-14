@@ -122,7 +122,16 @@ const brzMedia = [
   },
 ];
 
-const roboticsMedia = [
+type ProjectMedia = {
+  src: string;
+  label: string;
+  alt: string;
+  size?: "wide";
+  video?: boolean;
+  poster?: string;
+};
+
+const roboticsMedia: ProjectMedia[] = [
   {
     src: "/robotics-poster-board-optimized.jpg",
     label: "System presentation board",
@@ -135,26 +144,30 @@ const roboticsMedia = [
     alt: "Assembly drawing and bill of materials for the feed luma mechanism",
   },
   {
-    src: "/robotics-acc.mp4",
+    src: "/robotics-acc.mov",
+    poster: "/robotics-acc-poster.jpg",
     label: "Actuator test",
     alt: "Video of the robotics actuator test",
     video: true,
   },
   {
-    src: "/robotics-1.mp4",
+    src: "/robotics-1.mov",
+    poster: "/robotics-1-poster.jpg",
     label: "Mechanism test 01",
     alt: "Video test of the ME 2110 robotics mechanism",
     video: true,
   },
   {
-    src: "/robotics-2.mp4",
+    src: "/robotics-2.mov",
+    poster: "/robotics-2-poster.jpg",
     label: "Mechanism test 02",
     alt: "Video test of the ME 2110 robotics mechanism during a run",
     video: true,
     size: "wide",
   },
   {
-    src: "/robotics-3.mp4",
+    src: "/robotics-3.mov",
+    poster: "/robotics-3-poster.jpg",
     label: "Placement run",
     alt: "Video of the ME 2110 robotics mechanism placing game pieces",
     video: true,
@@ -675,10 +688,11 @@ function App() {
                           {item.video ? (
                             <video
                               src={item.src}
+                              poster={item.poster}
                               aria-label={item.alt}
                               muted
                               playsInline
-                              preload="none"
+                              preload="metadata"
                             />
                           ) : (
                             <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
