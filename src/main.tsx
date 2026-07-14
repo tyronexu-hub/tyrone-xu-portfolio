@@ -233,6 +233,7 @@ const glowCardProps = {
 function App() {
   const rootRef = useRef<HTMLElement | null>(null);
   const [isNavFloating, setIsNavFloating] = useState(false);
+  const [isWreckSoundEnabled, setIsWreckSoundEnabled] = useState(false);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -570,11 +571,20 @@ function App() {
                             if (!video) return;
                             video.currentTime = 0;
                             video.volume = 0.12;
-                            video.muted = false;
+                            video.muted = !isWreckSoundEnabled;
                             void video.play().catch(() => {
                               video.muted = true;
                               void video.play().catch(() => undefined);
                             });
+                          }}
+                          onClick={(event) => {
+                            const video = event.currentTarget.querySelector("video");
+                            if (!video) return;
+                            setIsWreckSoundEnabled(true);
+                            video.currentTime = 0;
+                            video.volume = 0.12;
+                            video.muted = false;
+                            void video.play().catch(() => undefined);
                           }}
                           onMouseLeave={(event) => {
                             const video = event.currentTarget.querySelector("video");
@@ -594,6 +604,9 @@ function App() {
                               preload="metadata"
                               aria-hidden="true"
                             />
+                          ) : null}
+                          {item.video && !isWreckSoundEnabled ? (
+                            <span className="sound-hint">Click for sound</span>
                           ) : null}
                           <figcaption>{item.label}</figcaption>
                         </figure>
