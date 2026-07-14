@@ -333,8 +333,81 @@ function App() {
       });
 
       gsap.utils.toArray<HTMLElement>(".image-reveal").forEach((wrap) => {
-        const image = wrap.querySelector("img");
-        if (!image) return;
+        const media = wrap.querySelector("img, video");
+        if (!media) return;
+
+        const isBrzReveal = Boolean(wrap.closest(".brz-case"));
+        const isRoboticsReveal = Boolean(wrap.closest(".robotics-case"));
+
+        if (isBrzReveal) {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: wrap,
+                start: "top 78%",
+                once: true,
+              },
+            })
+            .fromTo(
+              wrap,
+              { clipPath: "inset(0 100% 0 0)" },
+              {
+                clipPath: "inset(0 0% 0 0)",
+                duration: 1.28,
+                ease: "power3.inOut",
+              },
+            )
+            .fromTo(
+              media,
+              { xPercent: -8, scale: 1.08 },
+              {
+                xPercent: 0,
+                scale: 1,
+                duration: 1.55,
+                ease: "power4.out",
+              },
+              0.04,
+            );
+          return;
+        }
+
+        if (isRoboticsReveal) {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: wrap,
+                start: "top 80%",
+                once: true,
+              },
+            })
+            .fromTo(
+              wrap,
+              {
+                autoAlpha: 0,
+                clipPath: "inset(16% 14% 16% 14%)",
+                scale: 0.96,
+              },
+              {
+                autoAlpha: 1,
+                clipPath: "inset(0% 0% 0% 0%)",
+                duration: 1.45,
+                ease: "expo.out",
+                scale: 1,
+              },
+            )
+            .fromTo(
+              media,
+              { filter: "blur(10px)", scale: 1.16 },
+              {
+                filter: "blur(0px)",
+                scale: 1,
+                duration: 1.55,
+                ease: "power4.out",
+              },
+              0,
+            );
+          return;
+        }
 
         gsap.fromTo(
           wrap,
@@ -351,9 +424,9 @@ function App() {
           },
         );
 
-        if (wrap.matches(".wreck-hero-media, .brz-hero-media, .project-image")) {
+        if (wrap.matches(".wreck-hero-media, .project-image")) {
           gsap.fromTo(
-            image,
+            media,
             { scale: 1.12, yPercent: 8 },
             {
               scrollTrigger: {
