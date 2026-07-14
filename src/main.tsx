@@ -66,7 +66,7 @@ const wreckMedia = [
     src: "/wreck-race-run-cover.webp",
     label: "Race run",
     alt: "Wreck Racing car on track",
-    video: "/wreck-race-run.mov",
+    video: "/wreck-race-run.mp4",
     size: "wide",
   },
 ];
@@ -568,9 +568,13 @@ function App() {
                           onMouseEnter={(event) => {
                             const video = event.currentTarget.querySelector("video");
                             if (!video) return;
+                            video.currentTime = 0;
+                            video.volume = 0.12;
                             video.muted = false;
-                            video.volume = 0.2;
-                            void video.play().catch(() => undefined);
+                            void video.play().catch(() => {
+                              video.muted = true;
+                              void video.play().catch(() => undefined);
+                            });
                           }}
                           onMouseLeave={(event) => {
                             const video = event.currentTarget.querySelector("video");
@@ -587,7 +591,7 @@ function App() {
                               src={item.video}
                               loop
                               playsInline
-                              preload="none"
+                              preload="metadata"
                               aria-hidden="true"
                             />
                           ) : null}
