@@ -606,7 +606,7 @@ function App() {
                             />
                           ) : null}
                           {item.video && !isWreckSoundEnabled ? (
-                            <span className="sound-hint">Click for sound</span>
+                            <span className="sound-hint">Click to enable audio</span>
                           ) : null}
                           <figcaption>{item.label}</figcaption>
                         </figure>

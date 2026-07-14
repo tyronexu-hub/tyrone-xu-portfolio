@@ -706,9 +706,12 @@ img {
 }
 
 .sound-hint {
+  align-items: center;
   color: var(--accent);
+  display: inline-flex;
   font-size: 0.68rem;
   font-weight: 900;
+  gap: 10px;
   letter-spacing: 0.14em;
   padding: 0;
   position: absolute;
@@ -719,6 +722,27 @@ img {
   text-transform: uppercase;
   top: 18px;
   z-index: 7;
+}
+
+.sound-hint::before {
+  background: currentColor;
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(216, 255, 104, 0.42);
+  content: "";
+  height: 6px;
+  opacity: 0.88;
+  width: 6px;
+}
+
+.sound-hint::after {
+  background: linear-gradient(90deg, rgba(216, 255, 104, 0.82), transparent);
+  content: "";
+  height: 1px;
+  opacity: 0.54;
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  width: clamp(36px, 5vw, 86px);
 }
 
 .project-card {
