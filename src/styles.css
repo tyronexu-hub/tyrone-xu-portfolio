@@ -635,16 +635,13 @@ img {
 
 .wreck-hero-media span,
 .wreck-media-tile figcaption {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.68);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   bottom: 18px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
   left: 18px;
-  padding: 8px 10px;
+  padding: 0;
   position: absolute;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   z-index: 6;
 }
 
@@ -709,17 +706,16 @@ img {
 }
 
 .sound-hint {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.72);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   color: var(--accent);
   font-size: 0.68rem;
   font-weight: 900;
   letter-spacing: 0.14em;
-  padding: 7px 10px;
+  padding: 0;
   position: absolute;
   right: 18px;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   text-transform: uppercase;
   top: 18px;
   z-index: 7;
@@ -775,20 +771,17 @@ img {
 }
 
 .brz-hero-media span {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.68);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   bottom: 22px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
   color: var(--accent);
   font-size: 0.76rem;
   font-weight: 900;
   left: 22px;
   letter-spacing: 0.15em;
-  padding: 8px 10px;
+  padding: 0;
   position: absolute;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   text-transform: uppercase;
   z-index: 4;
 }
@@ -881,21 +874,18 @@ img {
 }
 
 .brz-media-tile figcaption {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.68);
-  border: 1px solid rgba(138, 164, 255, 0.28);
   bottom: 18px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
   color: var(--accent-2);
   font-size: 0.76rem;
   font-weight: 900;
   left: 18px;
   letter-spacing: 0.15em;
   margin: 0;
-  padding: 8px 10px;
+  padding: 0;
   position: absolute;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(138, 164, 255, 0.18);
   text-transform: uppercase;
   z-index: 6;
 }
@@ -1028,10 +1018,6 @@ img {
 }
 
 .robotics-visual figcaption {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.72);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   bottom: 22px;
   color: var(--accent);
   font-size: 0.76rem;
@@ -1039,8 +1025,11 @@ img {
   left: 22px;
   letter-spacing: 0.15em;
   margin: 0;
-  padding: 8px 10px;
+  padding: 0;
   position: absolute;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   text-transform: uppercase;
   z-index: 4;
 }
@@ -1102,10 +1091,6 @@ img {
 
 .robotics-media-tile.has-video::before {
   align-items: center;
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.58);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   color: var(--accent);
   content: "PLAY";
   display: flex;
@@ -1116,6 +1101,9 @@ img {
   letter-spacing: 0.15em;
   position: absolute;
   right: 18px;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   top: 18px;
   transition: opacity 400ms ease, transform 400ms ease;
   width: 62px;
@@ -1128,10 +1116,6 @@ img {
 }
 
 .robotics-media-tile figcaption {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  background: rgba(5, 8, 10, 0.72);
-  border: 1px solid rgba(216, 255, 104, 0.24);
   bottom: 18px;
   color: var(--accent);
   font-size: 0.76rem;
@@ -1139,8 +1123,11 @@ img {
   left: 18px;
   letter-spacing: 0.15em;
   margin: 0;
-  padding: 8px 10px;
+  padding: 0;
   position: absolute;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.95),
+    0 0 22px rgba(216, 255, 104, 0.22);
   text-transform: uppercase;
   z-index: 4;
 }
