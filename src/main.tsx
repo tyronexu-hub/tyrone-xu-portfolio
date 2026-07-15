@@ -281,9 +281,18 @@ function App() {
         const title = section.querySelector(".section-title");
         const kicker = section.querySelector(".kicker");
         const body = section.querySelectorAll(".motion-copy");
-        const cards = section.querySelectorAll(".motion-card");
+        const sectionId = section.id;
 
         if (title) {
+          const titleMotion =
+            sectionId === "projects"
+              ? { clipPath: "inset(0 100% 0 0)", x: -92, scaleX: 0.88, transformOrigin: "left center" }
+              : sectionId === "strengths"
+                ? { clipPath: "inset(100% 0 0 0)", y: -72, scaleY: 0.82, transformOrigin: "top" }
+                : sectionId === "contact"
+                  ? { clipPath: "inset(0 0 0 0)", scale: 0.9, filter: "blur(12px)" }
+                  : { clipPath: "inset(0 0 100% 0)", y: 92, scaleY: 0.76, transformOrigin: "bottom" };
+
           gsap.from(title, {
             scrollTrigger: {
               trigger: section,
@@ -291,12 +300,9 @@ function App() {
               once: true,
             },
             autoAlpha: 0,
-            clipPath: "inset(0 0 100% 0)",
-            duration: 1.45,
+            ...titleMotion,
+            duration: sectionId === "contact" ? 1.65 : 1.45,
             ease: precise,
-            scaleY: 0.76,
-            transformOrigin: "bottom",
-            y: 92,
           });
         }
 
@@ -315,8 +321,156 @@ function App() {
           });
         }
 
-        if (cards.length) {
-          gsap.from(cards, {
+        if (sectionId === "profile") {
+          const portrait = section.querySelector(".portrait-card");
+          const stats = section.querySelectorAll(".stat-card");
+
+          if (portrait) {
+            gsap.from(portrait, {
+              scrollTrigger: {
+                trigger: section,
+                start: "top 68%",
+                once: true,
+              },
+              autoAlpha: 0,
+              clipPath: "inset(0 26% 0 0)",
+              duration: 1.35,
+              ease: smooth,
+              rotate: -1.8,
+              x: -96,
+            });
+          }
+
+          if (stats.length) {
+            gsap.from(stats, {
+              scrollTrigger: {
+                trigger: stats[0],
+                start: "top 78%",
+                once: true,
+              },
+              autoAlpha: 0,
+              duration: 1.1,
+              ease: smooth,
+              stagger: {
+                amount: 0.42,
+                from: "edges",
+              },
+              y: 64,
+            });
+          }
+        }
+
+        if (sectionId === "projects") {
+          const wreck = section.querySelector(".wreck-feature");
+          const brz = section.querySelector(".brz-feature");
+          const robotics = section.querySelector(".robotics-feature");
+          const otherProjects = section.querySelectorAll(".project-list > .project-card");
+
+          if (wreck) {
+            gsap.from(wreck, {
+              scrollTrigger: {
+                trigger: wreck,
+                start: "top 72%",
+                once: true,
+              },
+              autoAlpha: 0,
+              clipPath: "inset(18% 0 0 0)",
+              duration: 1.28,
+              ease: smooth,
+              y: 84,
+            });
+          }
+
+          if (brz) {
+            gsap.from(brz, {
+              scrollTrigger: {
+                trigger: brz,
+                start: "top 72%",
+                once: true,
+              },
+              autoAlpha: 0,
+              clipPath: "inset(0 0 0 28%)",
+              duration: 1.35,
+              ease: "power3.inOut",
+              x: 120,
+            });
+          }
+
+          if (robotics) {
+            gsap.from(robotics, {
+              scrollTrigger: {
+                trigger: robotics,
+                start: "top 72%",
+                once: true,
+              },
+              autoAlpha: 0,
+              clipPath: "inset(12% 12% 12% 12%)",
+              duration: 1.5,
+              ease: "expo.out",
+              filter: "blur(12px)",
+              scale: 0.94,
+            });
+          }
+
+          if (otherProjects.length) {
+            gsap.from(otherProjects, {
+              scrollTrigger: {
+                trigger: otherProjects[0],
+                start: "top 76%",
+                once: true,
+              },
+              autoAlpha: 0,
+              duration: 1.1,
+              ease: smooth,
+              stagger: 0.12,
+              x: -72,
+            });
+          }
+        }
+
+        if (sectionId === "strengths") {
+          const strengthCards = section.querySelectorAll(".strength-card");
+          if (strengthCards.length) {
+            gsap.from(strengthCards, {
+              scrollTrigger: {
+                trigger: section,
+                start: "top 68%",
+                once: true,
+              },
+              autoAlpha: 0,
+              duration: 1.15,
+              ease: smooth,
+              rotateX: -18,
+              stagger: 0.12,
+              transformPerspective: 900,
+              transformOrigin: "top center",
+              y: 54,
+            });
+          }
+        }
+
+        if (sectionId === "contact") {
+          const actions = section.querySelector(".final-actions");
+          if (actions) {
+            gsap.from(actions, {
+              scrollTrigger: {
+                trigger: section,
+                start: "top 68%",
+                once: true,
+              },
+              autoAlpha: 0,
+              duration: 1.2,
+              ease: smooth,
+              scale: 0.94,
+              y: 42,
+            });
+          }
+        }
+
+        if (!["profile", "projects", "strengths", "contact"].includes(sectionId)) {
+          const cards = section.querySelectorAll(".motion-card");
+          if (cards.length) {
+            gsap.from(cards, {
             scrollTrigger: {
               trigger: section,
               start: "top 66%",
@@ -328,7 +482,8 @@ function App() {
             ease: smooth,
             stagger: 0.13,
             y: 78,
-          });
+            });
+          }
         }
       });
 
