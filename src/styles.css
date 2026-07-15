@@ -1326,8 +1326,151 @@ img {
 }
 
 @media (max-width: 720px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .shell {
+    padding: 84px 16px;
+  }
+
+  .below-hero::after,
+  .final-contact {
+    background-size: 30px 30px, 30px 30px, auto;
+  }
+
+  .nav,
+  .nav.is-floating {
+    gap: 10px;
+    grid-template-columns: 40px 1fr auto;
+    left: 50%;
+    max-width: calc(100% - 20px);
+    padding: 10px 12px;
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .mark {
+    font-size: 0.68rem;
+    height: 38px;
+    width: 38px;
+  }
+
+  .nav-cta {
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    padding: 11px 12px;
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-photo img {
+    object-position: 63% center;
+  }
+
+  .hero-photo::after {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.28) 58%, rgba(0, 0, 0, 0.42)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 36%, rgba(0, 0, 0, 0.62));
+  }
+
+  .hero-inner {
+    justify-content: flex-end;
+    min-height: 100svh;
+    padding: 118px 18px 42px;
+  }
+
+  .hero-content,
+  .hero-summary,
+  .profile-copy p,
+  .wreck-copy p,
+  .brz-copy p,
+  .robotics-copy p {
+    max-width: 100%;
+  }
+
+  .hero-kicker,
+  .kicker {
+    font-size: 0.67rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+  }
+
   .hero-title {
-    font-size: clamp(3.5rem, 17vw, 5.8rem);
+    font-size: clamp(3.35rem, 18vw, 5.45rem);
+    line-height: 0.88;
+    max-width: 8.8ch;
+  }
+
+  .hero-summary {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+
+  .hero-actions a {
+    min-height: 48px;
+    width: 100%;
+  }
+
+  .hero-tags {
+    gap: 7px;
+  }
+
+  .hero-tags span {
+    font-size: 0.63rem;
+    padding: 7px 8px;
+  }
+
+  .profile {
+    gap: 28px;
+  }
+
+  .portrait-card .border-glow-inner {
+    padding: 10px;
+  }
+
+  .profile-copy h2,
+  .section-heading h2,
+  .final-contact h2 {
+    font-size: clamp(2.28rem, 12.4vw, 3.9rem);
+    letter-spacing: -0.045em;
+    line-height: 0.94;
+    margin-bottom: 22px;
+  }
+
+  .profile-copy p,
+  .project-info p,
+  .strength-card p,
+  .final-inner p {
+    font-size: 0.98rem;
+  }
+
+  .section-heading {
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .stat-card,
+  .stat-card .border-glow-inner {
+    min-height: auto;
+  }
+
+  .stat-card .border-glow-inner {
+    padding: 20px;
+  }
+
+  .stat-card strong {
+    font-size: 2.7rem;
+    margin-bottom: 12px;
   }
 
   .stats-grid,
@@ -1343,6 +1486,209 @@ img {
   .brz-media-tile.is-wide,
   .robotics-media-tile.is-wide {
     grid-column: auto;
+  }
+
+  .wreck-case,
+  .brz-case,
+  .robotics-case {
+    gap: 12px;
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .wreck-copy,
+  .wreck-hero-media,
+  .brz-hero-media,
+  .brz-case,
+  .robotics-copy,
+  .robotics-visual,
+  .project-card-layout,
+  .project-image {
+    min-height: 0;
+  }
+
+  .wreck-copy {
+    min-height: 440px;
+    padding: 24px;
+  }
+
+  .wreck-copy h3 {
+    font-size: clamp(3.3rem, 17vw, 5.2rem);
+    margin: 16px 0 22px;
+  }
+
+  .wreck-metrics {
+    gap: 6px 14px;
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .wreck-hero-media,
+  .brz-hero-media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .wreck-media-grid,
+  .brz-media-grid,
+  .robotics-media-grid {
+    gap: 12px;
+  }
+
+  .wreck-media-tile,
+  .brz-media-tile,
+  .robotics-media-tile {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .wreck-media-tile.is-wide,
+  .brz-media-tile.is-wide,
+  .robotics-media-tile.is-wide {
+    aspect-ratio: 16 / 9;
+  }
+
+  .wreck-hero-media span,
+  .wreck-media-tile figcaption,
+  .brz-hero-media span,
+  .brz-media-tile figcaption,
+  .robotics-visual figcaption,
+  .robotics-media-tile figcaption {
+    bottom: 14px;
+    font-size: 0.62rem;
+    left: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  .sound-hint {
+    font-size: 0.56rem;
+    letter-spacing: 0.11em;
+    max-width: 48%;
+    right: 14px;
+    text-align: right;
+    top: 14px;
+  }
+
+  .sound-hint::after {
+    display: none;
+  }
+
+  .brz-copy {
+    align-content: start;
+    padding: 24px;
+  }
+
+  .brz-copy h3 {
+    font-size: clamp(3rem, 15vw, 4.6rem);
+    margin: 18px 0 22px;
+  }
+
+  .brz-tags {
+    gap: 8px;
+    margin-top: 26px;
+  }
+
+  .brz-tags span {
+    font-size: 0.64rem;
+    padding: 8px;
+  }
+
+  .robotics-case {
+    background-size: 36px 36px, 36px 36px, auto, auto;
+  }
+
+  .robotics-copy {
+    padding: 24px;
+  }
+
+  .robotics-copy::before {
+    left: 24px;
+    top: 24px;
+  }
+
+  .robotics-copy h3 {
+    font-size: clamp(2.75rem, 14vw, 4.45rem);
+    margin: 20px 0;
+  }
+
+  .robotics-metrics {
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .robotics-visual {
+    aspect-ratio: 4 / 3;
+  }
+
+  .robotics-media-tile.has-video::before {
+    font-size: 0.62rem;
+    right: 14px;
+    top: 14px;
+  }
+
+  .project-card-layout {
+    min-height: auto;
+  }
+
+  .project-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-info {
+    padding: 24px;
+  }
+
+  .project-info h3,
+  .strength-card h3 {
+    font-size: clamp(1.7rem, 9vw, 2.45rem);
+  }
+
+  .strength-card,
+  .strength-card .border-glow-inner {
+    min-height: auto;
+  }
+
+  .strength-card .border-glow-inner {
+    padding: 22px;
+  }
+
+  .strength-card span {
+    margin-bottom: 42px;
+  }
+
+  .final-contact {
+    min-height: 100svh;
+  }
+
+  .final-inner {
+    padding: 90px 18px;
+  }
+
+  .final-actions {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .final-actions a {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: clamp(3.15rem, 17vw, 4.65rem);
+  }
+
+  .wreck-copy h3,
+  .brz-copy h3,
+  .robotics-copy h3 {
+    font-size: clamp(2.65rem, 13.5vw, 4rem);
+  }
+
+  .wreck-copy {
+    min-height: 400px;
   }
 }
 
